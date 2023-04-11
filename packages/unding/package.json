@@ -1,0 +1,22 @@
+{
+  "name": "@unding/vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.4",
+    "svelte": "^3.58.0"
+  },
+  "type": "module",
+  "exports": {
+    "./renderer/_default.page.server.js": "./src/renderer/_default.page.server.js",
+    "./renderer/_default.page.client.js": "./src/renderer/_default.page.client.js",
+    ".": "./src/index.js"
+  }
+}
