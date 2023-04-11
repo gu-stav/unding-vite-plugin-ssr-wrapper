@@ -11,12 +11,17 @@
   "license": "ISC",
   "dependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
+    "commander": "^10.0.0",
     "svelte": "^3.58.0"
   },
   "type": "module",
   "exports": {
+    "./package.json": "./package.json",
     "./renderer/_default.page.server.js": "./src/renderer/_default.page.server.js",
     "./renderer/_default.page.client.js": "./src/renderer/_default.page.client.js",
     ".": "./src/index.js"
+  },
+  "bin": {
+    "unding": "./src/cli.js"
   }
 }
