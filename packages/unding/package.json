@@ -17,9 +17,9 @@
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
-    "./renderer/+onRenderHtml.js": "./src/renderer/+onRenderHtml.js",
-    "./renderer/+onRenderClient.js": "./src/renderer/+onRenderClient.js",
-    "./renderer/+config.js": "./src/renderer/+config.js",
+    "./pages/+onRenderHtml.js": "./src/pages/+onRenderHtml.js",
+    "./pages/+onRenderClient.js": "./src/pages/+onRenderClient.js",
+    "./pages/+config.js": "./src/pages/+config.js",
     ".": "./src/index.js"
   },
   "bin": {

@@ -14,9 +14,9 @@ export function unding() {
                 {
                   npmPackageName: '@unding/vite',
                   pageConfigsDistFiles: [
-                    '@unding/vite/renderer/+config.js',
-                    '@unding/vite/renderer/+onRenderClient.js',
-                    '@unding/vite/renderer/+onRenderHtml.js',
+                    '@unding/vite/pages/+config.js',
+                    '@unding/vite/pages/+onRenderClient.js',
+                    '@unding/vite/pages/+onRenderHtml.js',
                   ]
                 }
             ]
