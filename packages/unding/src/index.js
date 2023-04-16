@@ -5,7 +5,7 @@ export function unding() {
     return [
         ...svelte({
             compilerOptions: {
-            hydratable: true
+                hydratable: true
             }
         }),
 
@@ -13,9 +13,10 @@ export function unding() {
             extensions: [
                 {
                   npmPackageName: '@unding/vite',
-                  pageFilesDist: [
-                    '@unding/vite/renderer/_default.page.server.js',
-                    '@unding/vite/renderer/_default.page.client.js'
+                  pageConfigsDistFiles: [
+                    '@unding/vite/renderer/+config.js',
+                    '@unding/vite/renderer/+onRenderClient.js',
+                    '@unding/vite/renderer/+onRenderHtml.js',
                   ]
                 }
             ]

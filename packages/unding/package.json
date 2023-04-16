@@ -17,8 +17,9 @@
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
-    "./renderer/_default.page.server.js": "./src/renderer/_default.page.server.js",
-    "./renderer/_default.page.client.js": "./src/renderer/_default.page.client.js",
+    "./renderer/+onRenderHtml.js": "./src/renderer/+onRenderHtml.js",
+    "./renderer/+onRenderClient.js": "./src/renderer/+onRenderClient.js",
+    "./renderer/+config.js": "./src/renderer/+config.js",
     ".": "./src/index.js"
   },
   "bin": {
