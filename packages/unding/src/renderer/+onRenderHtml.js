@@ -2,8 +2,7 @@ import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr/server";
 
 const base = import.meta.env.BASE_URL
 
-export default async function onRenderHtml(pageContext) {
-  const { Page, ...context } = pageContext;
+export default async function onRenderHtml({ Page, ...context }) {
   const app = Page.render(context);
   const { html, head, css} = app;
 
