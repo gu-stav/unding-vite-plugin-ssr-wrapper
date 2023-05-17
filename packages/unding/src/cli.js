@@ -16,9 +16,17 @@ async function start() {
   await startServer({ path: process.cwd() });
 }
 
+async function dev() {
+  await startServer({ isProduction: false, path: process.cwd() });
+}
+
 program
   .command('build')
   .action(build);
+
+program
+  .command('dev')
+  .action(dev);
 
 program
   .command('start')

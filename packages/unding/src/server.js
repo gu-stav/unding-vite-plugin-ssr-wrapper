@@ -3,10 +3,10 @@ import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
 import * as vite from 'vite';
 
-export async function startServer({ path }) {
+export async function startServer({ isProduction = true, path }) {
     const app = express();
 
-    if (process.env.NODE_ENV === 'production') {
+    if (isProduction) {
         app.use(express.static(join(path, 'dist', 'client')));
     } else {
         const viteDevMiddleware = await vite.createServer({

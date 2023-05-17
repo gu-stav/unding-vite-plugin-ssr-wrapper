@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "unding build",
+    "dev": "unding dev",
     "start": "unding start"
   },
   "keywords": [],
