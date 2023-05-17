@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@unding/vite": "workspace:^",
-    "svelte": "^3.59.1"
+    "svelte": "^3.59.1",
+    "vite": "^4.3.7"
   },
   "type": "module"
 }

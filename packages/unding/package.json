@@ -25,5 +25,8 @@
   },
   "bin": {
     "unding": "./src/cli.js"
+  },
+  "devDependencies": {
+    "vite": "^4.3.7"
   }
 }
