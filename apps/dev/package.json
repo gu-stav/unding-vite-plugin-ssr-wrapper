@@ -14,7 +14,8 @@
   "dependencies": {
     "@unding/vite": "workspace:^",
     "svelte": "^3.59.1",
-    "vite": "^4.3.7"
+    "vite": "^4.3.7",
+    "vite-plugin-ssr": "^0.4.123"
   },
   "type": "module"
 }

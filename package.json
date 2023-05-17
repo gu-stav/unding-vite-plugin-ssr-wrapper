@@ -9,8 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "vite-plugin-ssr": "^0.4.123"
-  },
+  "dependencies": {},
   "type": "module"
 }
