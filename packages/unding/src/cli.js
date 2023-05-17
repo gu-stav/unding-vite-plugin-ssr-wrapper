@@ -13,11 +13,11 @@ async function build() {
 }
 
 async function start() {
-  await startServer({ path: process.cwd() });
+  await startServer({ cwd: process.cwd() });
 }
 
 async function dev() {
-  await startServer({ isProduction: false, path: process.cwd() });
+  await startServer({ env: 'development', cwd: process.cwd() });
 }
 
 program

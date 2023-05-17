@@ -1,16 +1,16 @@
 import express from 'express';
 import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
-import * as vite from 'vite';
+import { createServer } from 'vite';
 
-export async function startServer({ isProduction = true, path }) {
+export async function startServer({ env = 'production', cwd }) {
     const app = express();
 
-    if (isProduction) {
-        app.use(express.static(join(path, 'dist', 'client')));
+    if (env === 'production') {
+        app.use(express.static(join(cwd, 'dist', 'client')));
     } else {
-        const viteDevMiddleware = await vite.createServer({
-            root: path,
+        const viteDevMiddleware = await createServer({
+            root: cwd,
             server: { middlewareMode: true }
         });
 
