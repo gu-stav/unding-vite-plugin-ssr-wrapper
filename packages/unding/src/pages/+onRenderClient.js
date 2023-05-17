@@ -1,11 +1,14 @@
-export default async function onRenderClient({ pageProps, Page }) {
+import Layout from './Layout.svelte';
+
+export default function onRenderClient({ pageProps, Page }) {
   const target = document.getElementById('app');
 
-  new Page({
+  new Layout({
     target,
     hydrate: true,
     props: {
-      pageProps: pageProps
+      pageProps: pageProps,
+      Page
     }
-  })
+  });
 }

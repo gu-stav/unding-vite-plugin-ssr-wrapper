@@ -1,9 +1,11 @@
 import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr/server";
 
-const base = import.meta.env.BASE_URL
+const base = import.meta.env.BASE_URL;
 
-export default async function onRenderHtml({ Page, ...context }) {
-  const app = Page.render(context);
+import Layout from './Layout.svelte';
+
+export default async function onRenderHtml(pageContent) {
+  const app = Layout.render(pageContent);
   const { html, head, css} = app;
 
   return escapeInject`<!DOCTYPE html>
@@ -16,7 +18,9 @@ export default async function onRenderHtml({ Page, ...context }) {
         <style>${css.code}</style>
       </head>
       <body>
-        <div id="app">${dangerouslySkipEscape(html)}</div>
+        <div id="app">
+          ${dangerouslySkipEscape(html)}
+        </div>
       </body>
     </html>`
 }

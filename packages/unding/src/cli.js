@@ -9,10 +9,10 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 async function dev() {
     const server = await createServer({
-    configFile: join(__dirname, 'vite.config.js'),
-    server: {
-        port: 4000,
-    },
+      configFile: join(__dirname, 'vite.config.js'),
+      server: {
+          port: 4000,
+      },
     })
 
     await server.listen()

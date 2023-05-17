@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vite": "^4.2.1",
-    "vite-plugin-ssr": "^0.4.113"
+    "vite": "^4.3.7",
+    "vite-plugin-ssr": "^0.4.123"
   },
   "type": "module"
 }

@@ -3,13 +3,13 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 export function unding() {
     return [
-        ...svelte({
+        svelte({
             compilerOptions: {
                 hydratable: true
             }
         }),
 
-        ...ssr({
+        ssr({
             extensions: [
                 {
                   npmPackageName: '@unding/vite',
