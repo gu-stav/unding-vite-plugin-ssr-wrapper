@@ -1,27 +1,27 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import { fileURLToPath } from 'node:url'
-import { createServer } from 'vite'
+import { build as viteBuild } from 'vite'
 import { join } from 'node:path';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
+import { startServer } from './server.js';
 
-async function dev() {
-    const server = await createServer({
-      configFile: join(__dirname, 'vite.config.js'),
-      server: {
-          port: 4000,
-      },
-    })
+async function build() {
+  await viteBuild({
+    configFile: join(process.cwd(), 'vite.config.js'),
+  })
+}
 
-    await server.listen()
-
-    server.printUrls()
+async function start() {
+  await startServer({ path: process.cwd() });
 }
 
 program
-  .command('dev')
-  .action(dev);
+  .command('build')
+  .action(build);
+
+program
+  .command('start')
+  .action(start);
 
 program.parse();

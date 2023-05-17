@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "unding dev"
+    "build": "unding build",
+    "start": "unding start"
   },
   "keywords": [],
   "author": "",
