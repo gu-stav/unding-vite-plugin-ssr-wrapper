@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "unding build",
+    "build": "vite build",
     "dev": "unding dev",
     "start": "unding start"
   },
