@@ -2,31 +2,49 @@
 
 import { program } from "commander";
 import { join } from 'node:path';
+import { URL } from 'node:url';
 import * as vite from 'vite';
 
 import { startServer } from './server.js';
+import { loadConfig } from './config.js';
+
+const __dirname = new URL('.', import.meta.url).pathname;
 
 async function build() {
   await Promise.all([
     vite.build({
       configFile: join(process.cwd(), 'vite.config.js'),
+      resolve: {
+        alias: {
+          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
+        }
+      }
     }),
 
     vite.build({
       configFile: join(process.cwd(), 'vite.config.js'),
       build: {
         ssr: true
+      },
+      resolve: {
+        alias: {
+          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
+        }
       }
     })
   ]);
 }
 
 async function dev() {
-  await startServer({ env: 'development', cwd: process.cwd() });
+  const config = await loadConfig();
+
+  await startServer({ env: 'development', cwd: process.cwd(), config });
 }
 
 async function start() {
-  await startServer({ cwd: process.cwd() });
+  const config = await loadConfig();
+
+  await startServer({ cwd: process.cwd(), config });
 }
 
 program

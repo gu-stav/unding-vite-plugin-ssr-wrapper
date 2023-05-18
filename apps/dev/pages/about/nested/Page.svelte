@@ -2,8 +2,8 @@
     export async function load(pageContext) {
         // await api data here
         const page = {
-            title: "About",
-            body: "Sample API prefetch page with a fixed path (ie, not a catch-all route)."
+            title: "About :: Nested Page",
+            body: "Woop woop"
         };
 
         // pageProps is listed in server's passToClient list, so we put all of our
