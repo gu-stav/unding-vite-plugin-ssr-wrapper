@@ -29,6 +29,6 @@
   "peerDependencies": {
     "svelte": "^3.59.1",
     "vite": "^4.3.7",
-    "vite-plugin-ssr": "^0.4.123"
+    "vite-plugin-ssr": "^0.4.124"
   }
 }
