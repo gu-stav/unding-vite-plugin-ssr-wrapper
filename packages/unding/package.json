@@ -12,7 +12,8 @@
   "dependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.2.0",
     "commander": "^10.0.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "vite-plugin-ssr": "^0.4.124"
   },
   "type": "module",
   "exports": {
@@ -28,7 +29,6 @@
   "devDependencies": {},
   "peerDependencies": {
     "svelte": "^3.59.1",
-    "vite": "^4.3.7",
-    "vite-plugin-ssr": "^0.4.124"
+    "vite": "^4.3.7"
   }
 }

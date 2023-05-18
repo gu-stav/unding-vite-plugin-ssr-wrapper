@@ -14,7 +14,9 @@ async function build() {
 
     vite.build({
       configFile: join(process.cwd(), 'vite.config.js'),
-      ssr: true,
+      build: {
+        ssr: true
+      }
     })
   ]);
 }
