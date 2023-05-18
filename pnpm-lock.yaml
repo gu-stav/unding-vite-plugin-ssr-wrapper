@@ -12,12 +12,6 @@ importers:
       svelte:
         specifier: ^3.59.1
         version: 3.59.1
-      vite:
-        specifier: ^4.3.8
-        version: 4.3.8
-      vite-plugin-ssr:
-        specifier: ^0.4.124
-        version: 0.4.124(vite@4.3.8)
 
   packages/unding:
     dependencies:
@@ -987,64 +981,8 @@ packages:
       vite: 4.3.7
     dev: false
 
-  /vite-plugin-ssr@0.4.124(vite@4.3.8):
-    resolution: {integrity: sha512-eGmUBQHnbiI09O5AZ5w84KackrOKy/3jkoT7C1C/Pyz7o521iiawbxqTMPc7dIvm00/zwYno9QMrnq/LsIi6Lg==}
-    engines: {node: '>=12.19.0'}
-    hasBin: true
-    peerDependencies:
-      react-streaming: '>=0.3.5'
-      vite: '>=3.1.0'
-    peerDependenciesMeta:
-      react-streaming:
-        optional: true
-    dependencies:
-      '@brillout/import': 0.2.3
-      '@brillout/json-serializer': 0.5.3
-      '@brillout/picocolors': 1.0.4
-      '@brillout/vite-plugin-import-build': 0.2.16
-      acorn: 8.8.2
-      cac: 6.7.14
-      es-module-lexer: 0.10.5
-      esbuild: 0.17.18
-      fast-glob: 3.2.12
-      sirv: 2.0.2
-      vite: 4.3.8
-    dev: false
-
   /vite@4.3.7:
     resolution: {integrity: sha512-MTIFpbIm9v7Hh5b0wSBgkcWzSBz7SAa6K/cBTwS4kUiQJfQLFlZZRJRQgqunCVzhTPCk674tW+0Qaqh3Q00dBg==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.17.18
-      postcss: 8.4.23
-      rollup: 3.22.0
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: false
-
-  /vite@4.3.8:
-    resolution: {integrity: sha512-uYB8PwN7hbMrf4j1xzGDk/lqjsZvCDbt/JC5dyfxc19Pg8kRm14LinK/uq+HSLNswZEoKmweGdtpbnxRtrAXiQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
