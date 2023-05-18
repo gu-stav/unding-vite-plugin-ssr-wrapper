@@ -6,7 +6,7 @@ importers:
 
   apps/dev:
     dependencies:
-      '@unding/vite':
+      '@unding/studio':
         specifier: workspace:^
         version: link:../../packages/unding
       svelte:
