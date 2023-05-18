@@ -3,6 +3,10 @@ import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
 import { createServer } from 'vite';
 import { URL } from 'node:url';
+import { createExpressMiddleware } from '@trpc/server/adapters/express';
+
+import { createContext } from './trpc/context.js';
+import { appRouter } from './trpc/server.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
@@ -24,6 +28,8 @@ export async function startServer({ env = 'production', cwd, config, port = 4000
 
         app.use(viteServer.middlewares)
     }
+
+    app.use('/trpc', createExpressMiddleware({ router: appRouter, createContext }));
 
     app.get('*', async (req, res, next) => {
         const pageContext = await renderPage({ unding: config, urlOriginal: req.originalUrl });
