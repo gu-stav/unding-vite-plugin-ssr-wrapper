@@ -1,5 +1,9 @@
 <script context="module">
+    import { client } from '@unding/studio/trpc';
+
     export async function load(pageContext) {
+        const user = await client.userById.query('test 123');
+
         // await api data here
         const page = {
             title: "About",
@@ -11,6 +15,7 @@
         return {
             pageContext: {
                 pageProps: {
+                    user,
                     ...page
                 }
             }
@@ -21,10 +26,13 @@
 <script>
     export let title;
     export let body;
+    export let user;
 </script>
 
 <h1>{title}</h1>
 <p>{body}</p>
+
+<p>Hello {user.name}</p>
 
 <a href="/about/nested">Go to nested page</a>
 
