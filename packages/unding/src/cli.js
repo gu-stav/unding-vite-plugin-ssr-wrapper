@@ -14,11 +14,6 @@ async function build() {
   await Promise.all([
     vite.build({
       configFile: join(process.cwd(), 'vite.config.js'),
-      resolve: {
-        alias: {
-          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
-        }
-      }
     }),
 
     vite.build({
@@ -26,11 +21,6 @@ async function build() {
       build: {
         ssr: true
       },
-      resolve: {
-        alias: {
-          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
-        }
-      }
     })
   ]);
 }
