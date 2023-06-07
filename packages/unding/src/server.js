@@ -13,11 +13,6 @@ export async function startServer({ env = 'production', cwd, config, port = 4000
         app.use(express.static(join(cwd, 'dist', 'client')));
     } else {
         const viteServer = await createServer({
-            resolve: {
-                alias: {
-                    'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
-                }
-            },
             root: cwd,
             server: { middlewareMode: true }
         });
