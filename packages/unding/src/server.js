@@ -2,9 +2,6 @@ import express from 'express';
 import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
 import { createServer } from 'vite';
-import { URL } from 'node:url';
-
-const __dirname = new URL('.', import.meta.url).pathname;
 
 export async function startServer({ env = 'production', cwd, config, port = 4000 }) {
     const app = express();
