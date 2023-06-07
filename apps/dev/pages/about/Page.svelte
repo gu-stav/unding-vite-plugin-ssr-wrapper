@@ -6,8 +6,6 @@
             body: "Sample API prefetch page with a fixed path (ie, not a catch-all route)."
         };
 
-        console.log('fetch data about')
-
         // pageProps is listed in server's passToClient list, so we put all of our
         // props into that, and just use that one prop.
         return {

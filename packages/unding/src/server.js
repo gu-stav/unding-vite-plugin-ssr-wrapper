@@ -3,22 +3,22 @@ import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
 import { createServer } from 'vite';
 
-export async function startServer({ env = 'production', cwd }) {
+export async function startServer({ env = 'production', cwd, config, port = 4000 }) {
     const app = express();
 
     if (env === 'production') {
         app.use(express.static(join(cwd, 'dist', 'client')));
     } else {
-        const viteDevMiddleware = await createServer({
+        const viteServer = await createServer({
             root: cwd,
             server: { middlewareMode: true }
         });
 
-        app.use(viteDevMiddleware.middlewares)
+        app.use(viteServer.middlewares)
     }
 
     app.get('*', async (req, res, next) => {
-        const pageContext = await renderPage({ urlOriginal: req.originalUrl });
+        const pageContext = await renderPage({ unding: config, urlOriginal: req.originalUrl });
 
         if (pageContext.httpResponse === null) {
             return next()
@@ -27,8 +27,6 @@ export async function startServer({ env = 'production', cwd }) {
         const { body, statusCode, contentType } = pageContext.httpResponse
         res.status(statusCode).type(contentType).send(body)
     })
-
-    const port = 4000;
 
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`)
