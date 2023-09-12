@@ -1,16 +1,13 @@
-// import { resolve } from 'node:path';
-import { unding } from './vite/index.js';
+import ssr from 'vite-plugin-ssr/plugin'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 export default {
-  plugins: [unding()],
-  // ssr: {
-  //   external: [
-  //       '#unding-config'
-  //     ]
-  // },
-  // resolve: {
-  //     alias: {
-  //         '#unding-config': resolve(process.cwd(), './unding.config.js')
-  //     }
-  // },
+  plugins: [
+    svelte({
+      compilerOptions: {
+          hydratable: true
+      }
+    }),
+    ssr()
+  ],
 }

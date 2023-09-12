@@ -6,11 +6,11 @@ import { createServer } from 'vite';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-export async function startServer({ env = 'production', cwd, config, port = 4000 }) {
+export async function startServer({ env = 'production', config, port = 4000 }) {
     const app = express();
 
     if (env === 'production') {
-        app.use(express.static(join(cwd, 'dist', 'client')));
+        app.use(express.static(join(__dirname, 'dist', 'client')));
     } else {
         const viteServer = await createServer({
             root: __dirname,

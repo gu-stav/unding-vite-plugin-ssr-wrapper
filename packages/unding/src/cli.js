@@ -30,13 +30,13 @@ async function build() {
 async function dev() {
   const config = await loadConfig();
 
-  await startServer({ env: 'development', cwd: process.cwd(), config });
+  await startServer({ env: 'development', config });
 }
 
 async function start() {
   const config = await loadConfig();
 
-  await startServer({ cwd: process.cwd(), config });
+  await startServer({ config });
 }
 
 program
