@@ -1,6 +1,6 @@
 import express from 'express';
 import { renderPage } from 'vite-plugin-ssr/server';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { URL } from 'node:url';
 import { createServer } from 'vite';
 
@@ -11,9 +11,12 @@ export async function startServer({ env = 'production', config, port = 4000 }) {
 
     if (env === 'production') {
         app.use(express.static(join(__dirname, 'dist', 'client')));
+
+        // See https://github.com/brillout/vite-plugin-import-build#manual-import
+        await import(join(__dirname, 'studio', 'dist', 'server', 'importBuild.cjs'));
     } else {
         const viteServer = await createServer({
-            root: __dirname,
+            root: join(__dirname, 'studio'),
         });
 
         app.use(viteServer.middlewares)
