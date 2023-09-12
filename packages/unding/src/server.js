@@ -1,5 +1,5 @@
 import express from 'express';
-import { renderPage } from 'vite-plugin-ssr/server';
+import { renderPage } from '@unding/renderer/vike';
 import { join } from 'node:path';
 import { URL } from 'node:url';
 import { createServer } from 'vite';

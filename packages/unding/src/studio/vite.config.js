@@ -1,13 +1,5 @@
-import ssr from 'vite-plugin-ssr/plugin'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { unding } from '@unding/renderer/vite'
 
 export default {
-  plugins: [
-    svelte({
-      compilerOptions: {
-          hydratable: true
-      }
-    }),
-    ssr()
-  ],
+  plugins: [ unding() ],
 }
