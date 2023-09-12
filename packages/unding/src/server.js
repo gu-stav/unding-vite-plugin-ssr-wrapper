@@ -17,6 +17,7 @@ export async function startServer({ env = 'production', config, port = 4000 }) {
     } else {
         const viteServer = await createServer({
             root: join(__dirname, 'studio'),
+            server: { middlewareMode: true }
         });
 
         app.use(viteServer.middlewares)

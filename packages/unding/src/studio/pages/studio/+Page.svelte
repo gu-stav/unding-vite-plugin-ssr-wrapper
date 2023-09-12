@@ -1,3 +1,3 @@
 <h1>Studio</h1>
 
-wat
+<a href="/auth/login">Login</a>
