@@ -1,34 +1,46 @@
 import express from 'express';
 import { renderPage } from 'vite-plugin-ssr/server';
 import { join } from 'node:path';
+import { URL } from 'node:url';
 import { createServer } from 'vite';
 
-export async function startServer({ env = 'production', cwd }) {
+const __dirname = new URL('.', import.meta.url).pathname;
+
+export async function startServer({ env = 'production', config, port = 4000 }) {
     const app = express();
 
     if (env === 'production') {
-        app.use(express.static(join(cwd, 'dist', 'client')));
+        app.use(express.static(join(__dirname, 'dist', 'client')));
+
+        // See https://github.com/brillout/vite-plugin-import-build#manual-import
+        await import(join(__dirname, 'studio', 'dist', 'server', 'importBuild.cjs'));
     } else {
-        const viteDevMiddleware = await createServer({
-            root: cwd,
+        const viteServer = await createServer({
+            root: join(__dirname, 'studio'),
             server: { middlewareMode: true }
         });
 
-        app.use(viteDevMiddleware.middlewares)
+        app.use(viteServer.middlewares)
     }
 
     app.get('*', async (req, res, next) => {
-        const pageContext = await renderPage({ urlOriginal: req.originalUrl });
+        const pageContext = await renderPage({ unding: config, urlOriginal: req.originalUrl });
+        const { httpResponse } = pageContext
 
-        if (pageContext.httpResponse === null) {
+        if (!httpResponse) {
             return next()
         }
 
-        const { body, statusCode, contentType } = pageContext.httpResponse
-        res.status(statusCode).type(contentType).send(body)
-    })
+        const { body, statusCode, headers, earlyHints } = httpResponse;
 
-    const port = 4000;
+        if (res.writeEarlyHints) {
+            res.writeEarlyHints({ link: earlyHints.map((e) => e.earlyHintLink) })
+        }
+
+        headers.forEach(([name, value]) => res.setHeader(name, value))
+        res.status(statusCode);
+        res.send(body);
+    })
 
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`)

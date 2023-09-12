@@ -4,18 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "vite build",
+    "build": "unding build",
     "dev": "unding dev",
     "start": "unding start"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@unding/vite": "workspace:^",
-    "svelte": "^3.59.1",
-    "vite": "^4.3.8",
-    "vite-plugin-ssr": "^0.4.124"
+    "@unding/studio": "workspace:^"
   },
   "type": "module"
 }
