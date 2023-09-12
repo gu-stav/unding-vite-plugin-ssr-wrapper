@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import { join } from 'node:path';
+import { resolve } from 'node:path';
 import { URL } from 'node:url';
 import * as vite from 'vite';
 
@@ -13,26 +13,16 @@ const __dirname = new URL('.', import.meta.url).pathname;
 async function build() {
   await Promise.all([
     vite.build({
-      configFile: join(process.cwd(), 'vite.config.js'),
-      resolve: {
-        alias: {
-          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
-        }
-      }
+      root: resolve(__dirname),
     }),
 
     vite.build({
-      configFile: join(process.cwd(), 'vite.config.js'),
+      root: resolve(__dirname),
       build: {
         ssr: {
           external: ['@unding/studio']
         }
       },
-      resolve: {
-        alias: {
-          'vite-plugin-ssr': join(__dirname, '..', 'node_modules', 'vite-plugin-ssr')
-        }
-      }
     })
   ]);
 }

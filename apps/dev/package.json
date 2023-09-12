@@ -10,11 +10,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@unding/studio": "workspace:^",
-    "svelte": "^3.59.1",
-    "vite": "^4.3.9"
+    "@unding/studio": "workspace:^"
   },
   "type": "module"
 }

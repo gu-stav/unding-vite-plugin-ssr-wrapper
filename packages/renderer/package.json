@@ -1,0 +1,22 @@
+{
+  "name": "@unding/renderer",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./src/renderer/+config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "svelte": "^4.2.0",
+    "vite-plugin-ssr": "^0.4.140"
+  },
+  "exports": {
+    ".": "./src/renderer/+config.js",
+    "./renderer/onRenderHtml": "./src/renderer/onRenderHtml.js",
+    "./renderer/onRenderClient": "./src/renderer/onRenderClient.js"
+  }
+}

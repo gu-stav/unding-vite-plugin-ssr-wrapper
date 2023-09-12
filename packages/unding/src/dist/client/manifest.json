@@ -1,0 +1,16 @@
+{
+  "../../../apps/dev/virtual:vite-plugin-ssr:importPageCode:client:/pages/index": {
+    "file": "assets/entries/pages_index.abef2a53.js",
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "../../../apps/dev/virtual:vite-plugin-ssr:importPageCode:client:/pages/index"
+  },
+  "../../../node_modules/.pnpm/vite-plugin-ssr@0.4.140_vite@4.4.9/node_modules/vite-plugin-ssr/dist/esm/client/client-routing-runtime/entry.js": {
+    "dynamicImports": [
+      "../../../apps/dev/virtual:vite-plugin-ssr:importPageCode:client:/pages/index"
+    ],
+    "file": "assets/entries/entry-client-routing.f977c7a7.js",
+    "isEntry": true,
+    "src": "../../../node_modules/.pnpm/vite-plugin-ssr@0.4.140_vite@4.4.9/node_modules/vite-plugin-ssr/dist/esm/client/client-routing-runtime/entry.js"
+  }
+}
