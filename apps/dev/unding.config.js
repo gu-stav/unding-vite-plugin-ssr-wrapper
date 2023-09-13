@@ -1,6 +1,7 @@
 import { definePlugin } from "@unding/studio";
 
-const media = definePlugin('Media Library', {
+const media = definePlugin((options) => ({
+    name: 'Media Library',
     routes: [
         {
             handler() {
@@ -9,9 +10,10 @@ const media = definePlugin('Media Library', {
             path: '/hello'
         }
     ],
-});
+}));
 
-const wat = definePlugin('Wat wat', {
+const wat = definePlugin((options) => ({
+    name: 'Wat',
     routes: [
         {
             handler() {
@@ -20,7 +22,7 @@ const wat = definePlugin('Wat wat', {
             path: '/wat'
         }
     ],
-});
+}));
 
 export default {
     plugins: [

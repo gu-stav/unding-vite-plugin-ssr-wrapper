@@ -1,6 +1,3 @@
-export function definePlugin(name, attributes) {
-    return () => ({
-        name,
-        ...attributes
-    });
+export function definePlugin(init) {
+    return () => () => init();
 }
