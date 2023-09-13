@@ -4,14 +4,17 @@ import { join, resolve } from 'node:path';
 import { URL } from 'node:url';
 import { createServer as createViteDevServer } from 'vite';
 
+import { createAPIRouter } from '../api/index.js';
+import { createPluginRouter } from './plugin.js';
+
 const __dirname = new URL('.', import.meta.url).pathname;
 
 function createServer() {
     const app = express();
 
     return {
-        createMiddleware(handler) {
-            app.use(handler);
+        createMiddleware(...args) {
+            app.use(...args);
         },
 
         createRoute(method, path, handler) {
@@ -49,17 +52,13 @@ export async function startServer({ env = 'production', cwd, config }) {
         server.createMiddleware(viteServer.middlewares)
     }
 
-    config.plugins.forEach(plugin => {
-        if (plugin?.routes?.length) {
-            plugin.routes.forEach((route) => {
-                console.log('Register plugin route:', route.path);
+    server.createMiddleware('/api', createAPIRouter());
 
-                server.createRoute('get', route.path, async (req, res) => {
-                    res.send(route.handler());
-                });
-            })
+    config.plugins.forEach(plugin => {
+        if (plugin?.routes?.length > 0) {
+            server.createMiddleware(`/${plugin.namespace}`, createPluginRouter(plugin.routes));
         }
-    })
+    });
 
     server.createRoute('get', '*', async (req, res, next) => {
         const pageContext = await renderPage({ unding: config, urlOriginal: req.originalUrl });

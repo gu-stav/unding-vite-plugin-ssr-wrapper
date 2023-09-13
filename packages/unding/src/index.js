@@ -1,3 +1,8 @@
 export function definePlugin(init) {
-    return () => () => init();
+    const plugin = init();
+
+    return () => () => ({
+        namespace: 'some-namespace',
+        ...plugin,
+    });
 }
