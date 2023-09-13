@@ -1,12 +1,12 @@
 import express from 'express';
 import { renderPage } from '@unding/renderer/vike';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { URL } from 'node:url';
 import { createServer } from 'vite';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-export async function startServer({ env = 'production', config, port = 4000 }) {
+export async function startServer({ env = 'production', cwd, config, port = 4000 }) {
     const app = express();
 
     if (env === 'production') {
@@ -16,12 +16,29 @@ export async function startServer({ env = 'production', config, port = 4000 }) {
         await import(join(__dirname, 'studio', 'dist', 'server', 'importBuild.cjs'));
     } else {
         const viteServer = await createServer({
+            resolve: {
+                alias: {
+                    '#unding-config': resolve(cwd, 'unding.config.js'),
+                }
+            },
             root: join(__dirname, 'studio'),
             server: { middlewareMode: true }
         });
 
         app.use(viteServer.middlewares)
     }
+
+    config.plugins.forEach(plugin => {
+        if (plugin?.routes?.length) {
+            plugin.routes.forEach((route) => {
+                console.log('Register plugin route:', route.path);
+
+                app.get(route.path, async (req, res) => {
+                    res.send(route.handler());
+                });
+            })
+        }
+    })
 
     app.get('*', async (req, res, next) => {
         const pageContext = await renderPage({ unding: config, urlOriginal: req.originalUrl });
