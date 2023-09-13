@@ -36,7 +36,7 @@ export async function startServer({ env = 'production', cwd, config }) {
         server.createMiddleware(express.static(join(__dirname, '..', 'dist', 'client')));
 
         // See https://github.com/brillout/vite-plugin-import-build#manual-import
-        await import(join(__dirname, '..', 'studio', 'dist', 'server', 'importBuild.cjs'));
+        await import(join(cwd, 'dist', 'server', 'importBuild.cjs'));
     } else {
         const viteServer = await createDevServer({ cwd });
         server.createMiddleware(viteServer.middlewares);
