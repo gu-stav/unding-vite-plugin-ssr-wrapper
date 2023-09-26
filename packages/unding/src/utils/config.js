@@ -3,6 +3,7 @@ import { join } from 'node:path';
 
 export function validateConfig(config) {
     const schema = z.object({
+        components: z.function().optional(),
         plugins: z.array(z.function())
     }).strict();
 

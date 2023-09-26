@@ -1,6 +1,7 @@
 <script>
-    import config from '#unding-config';
+    import * as config from '#unding-config';
+
+    console.log({ config })
 </script>
 
 <h1>Config</h1>
-<pre>{JSON.stringify(config, null, 2)}</pre>
