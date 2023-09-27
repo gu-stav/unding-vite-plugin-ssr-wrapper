@@ -1,1 +1,1 @@
-export * from 'vite-plugin-ssr/server';
+export * from 'vike/server';

@@ -1,4 +1,4 @@
-import ssr from 'vite-plugin-ssr/plugin'
+import ssr from 'vike/plugin'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 export function unding() {
