@@ -22,9 +22,9 @@ importers:
       svelte:
         specifier: ^4.2.0
         version: 4.2.0
-      vite-plugin-ssr:
-        specifier: ^0.4.140
-        version: 0.4.140(vite@4.4.9)
+      vike:
+        specifier: ^0.4.142
+        version: 0.4.142(vite@4.4.9)
 
   packages/ui: {}
 
@@ -63,12 +63,12 @@ packages:
     resolution: {integrity: sha512-1T8WlD75eeFSMrptGy8jiLHmfHgMmSjWvLOIUvHmSVZt+6k0eQqYUoK4KbmE4T9pVLIfxvZSOm2D68VEqKRHRw==}
     dev: false
 
-  /@brillout/json-serializer@0.5.5:
-    resolution: {integrity: sha512-kvT3sKCujZ2pn0Aq+yR3+JFrpee5UprimYXPO14BpLBWcVnoiGd6vyjubHPH6H5zU9QSJbSZ1/cUFWjYonoSmQ==}
+  /@brillout/json-serializer@0.5.6:
+    resolution: {integrity: sha512-48u+Wthh0muDueyooi/Or59DDFCPitnuCN9OkMWoj7MQAbDn5pS/cVBB7ds6ENmtC1Qb0spI4PfKZxQSBEkubg==}
     dev: false
 
-  /@brillout/picocolors@1.0.7:
-    resolution: {integrity: sha512-VQtuP4T/y9Ba5XgG78AN4vNmkndYm7dR4DzLeYs7SRJcNl3rcMgQUMCYbvSco/QDOKWW6ZmJ7G7wloyAGdbbOA==}
+  /@brillout/picocolors@1.0.9:
+    resolution: {integrity: sha512-Lt/W5JsA75hcDJ2cOAlE4TqSMl6c9K+rXGRo/cU2fApnmhbRcNdkR4UHQDAwtWfZyUKWaxdwSui+jp+74J1pZg==}
     dev: false
 
   /@brillout/require-shim@0.1.2:
@@ -1352,8 +1352,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vite-plugin-ssr@0.4.140(vite@4.4.9):
-    resolution: {integrity: sha512-UcUOszxAdf2Kau4VbVeNRZwVvINtrQIuI8NzuwXXW41nq2f2ej9T/+8uRF6ICUi99Y0HwiK1kZX0+Ox7oY17gg==}
+  /vike@0.4.142(vite@4.4.9):
+    resolution: {integrity: sha512-eciryBs3k29SwSQM2esZzjt9Fyig/tNAgQ5xlduw9XVNUnd1hdWPr8CBi7yzvWgeavggPmywbt+Da1OLBoO8Kg==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
@@ -1364,8 +1364,8 @@ packages:
         optional: true
     dependencies:
       '@brillout/import': 0.2.3
-      '@brillout/json-serializer': 0.5.5
-      '@brillout/picocolors': 1.0.7
+      '@brillout/json-serializer': 0.5.6
+      '@brillout/picocolors': 1.0.9
       '@brillout/require-shim': 0.1.2
       '@brillout/vite-plugin-import-build': 0.2.18
       acorn: 8.10.0
