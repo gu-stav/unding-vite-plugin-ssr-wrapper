@@ -2,11 +2,13 @@ import { createServer as createViteDevServer } from 'vite';
 import { join, resolve } from 'node:path';
 import { renderPage } from '@unding/renderer/vike';
 import { URL } from 'node:url';
+import { unding } from '@unding/renderer/vite'
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
 export async function createDevServer({ cwd }) {
     const viteServer = await createViteDevServer({
+        plugins: [ unding() ],
         resolve: {
             alias: {
                 '#unding-config': resolve(cwd, 'unding.config.js'),

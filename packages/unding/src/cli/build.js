@@ -9,8 +9,8 @@ export async function build() {
     const cwd = process.cwd();
     const commonOptions = {
         build: {
-            //emptyOutDir: true,
-            //outDir: join(cwd, 'dist')
+            emptyOutDir: true,
+            outDir: join(cwd, 'dist')
         },
         plugins: [ unding() ],
         root: resolve(__dirname, '..', 'studio'),
